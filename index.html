@@ -3,43 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Менің сайтым</title>
-    <!-- CSS файлын байланыстыру -->
+    <title>Заманауи Портфолио</title>
+    <!-- CSS стилін байланыстыру -->
     <link rel="stylesheet" href="style.css">
+    <!-- Иконкалар үшін FontAwesome кітапханасы -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Навигация -->
     <header>
         <nav class="navbar">
-            <h1 class="logo">Portfolio</h1>
+            <a href="#" class="logo">Portfolio<span>.</span></a>
             <ul class="nav-links">
-                <li><a href="#home">Басты бет</a></li>
-                <li><a href="#about">Туралы</a></li>
+                <li><a href="#hero">Басты бет</a></li>
+                <li><a href="#skills">Дағдылар</a></li>
+                <li><a href="#projects">Жобалар</a></li>
                 <li><a href="#contact">Байланыс</a></li>
             </ul>
+            <!-- Тақырыпты ауыстыратын батырма -->
+            <button id="theme-toggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Сәлем! Менің сайтыма қош келдіңіз!</h2>
-                <p>Бұл HTML, CSS және JavaScript көмегімен жасалған қарапайым сайт үлгісі.</p>
-                <button id="colorBtn">Түсті өзгерту</button>
+    <!-- Басты бет (Hero section) -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Сәлем, мен <span class="highlight">Әділет</span></h1>
+            <p>Жаңа буын веб-қосымшалары мен заманауи сайттарды жобалайтын әзірлеушімін.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn primary">Жобаларым</a>
+                <a href="#contact" class="btn secondary">Хабарласу</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="about">
-            <h2>Мен туралы</h2>
-            <p>Бұл бөлімде сіз өз мағлұматтарыңызды немесе жобаларыңызды жаза аласыз.</p>
-        </section>
-    </main>
+    <!-- Дағдылар бөлімі -->
+    <section id="skills" class="skills">
+        <h2>Менің дағдыларым</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-brands fa-html5"></i>
+                <h3>HTML5 & CSS3</h3>
+                <p>Заманауи, адаптивті және әдемі интерфейстер жасау.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-brands fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>Сайттарға интерактивтілік пен динамикалық логика қосу.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>Flutter / Dart</h3>
+                <p>Мобильді қосымшалар мен кросс-платформалық жүйелер.</p>
+            </div>
+        </div>
+    </section>
 
-    <footer id="contact">
+    <!-- Жобалар бөлімі -->
+    <section id="projects" class="projects">
+        <h2>Соңғы жобаларым</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>SafeRoom</h3>
+                <p>Студенттерге арналған ыңғайлы тұрғын үй платформасының жобасы.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-droplet"></i></div>
+                <h3>Hydro-Guard</h3>
+                <p>Су ресурстарының қауіпсіздігі мен тұтастығын бақылайтын жүйе.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-book-open"></i></div>
+                <h3>Folklore Comics</h3>
+                <p>Қазақ халқының фольклорын жаңғыртатын графикалық комикстер.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Байланыс бөлімі -->
+    <section id="contact" class="contact">
+        <h2>Менімен байланысыңыз</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Атыңыз" required>
+            <input type="email" placeholder="Электрондық поштаңыз" required>
+            <textarea placeholder="Хат мәтіні..." rows="5" required></textarea>
+            <button type="submit" class="btn primary">Жіберу</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer>
         <p>&copy; 2026 Барлық құқықтар қорғалған.</p>
     </footer>
 
-    <!-- JS файлын байланыстыру -->
+    <!-- JavaScript файлын байланыстыру -->
     <script src="script.js"></script>
 </body>
 </html>
