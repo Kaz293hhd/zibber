@@ -23,11 +23,19 @@
 
     <main class="page-content">
         <h2>Бізбен байланысу & Тапсырыс</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Аты-жөніңіз" required>
-            <input type="tel" placeholder="Телефон номеріңіз" required>
-            <textarea placeholder="Хабарлама немесе тапсырыс түрі..." rows="4" required></textarea>
-            <button type="submit" class="btn">Жіберу</button>
+        
+        <!-- Өз поштаңызды төмендегі сілтемеге жазыңыз: -->
+        <form action="https://formsubmit.co/kuralbaishingis@gmail.com" method="POST" id="contact-form">
+            
+            <!-- Капчаны өшіру және хат кеткен соң қайта оралу үшін -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://kaz293hhd.github.io/shynggys/contact.html">
+
+            <input type="text" name="Аты-жөні" placeholder="Аты-жөніңіз" required>
+            <input type="tel" name="Телефон" placeholder="Телефон номеріңіз" required>
+            <textarea name="Хабарлама" placeholder="Хабарлама немесе тапсырыс түрі..." rows="4" required></textarea>
+            
+            <button type="submit" class="btn">Тапсырысты жіберу</button>
         </form>
     </main>
 
