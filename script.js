@@ -1,8 +1,10 @@
-// Тапсырыс формасы жіберілген кезде хабарлама шығару
-const bookingForm = document.getElementById('booking-form');
+// Байланыс немесе тапсырыс формасы жіберілген кезде
+const contactForm = document.getElementById('contact-form');
 
-bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Тапсырысыңыз қабылданды! Жақын арада сізбен хабарласамыз.');
-    bookingForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Хабарламаңыз немесе тапсырысыңыз сәтті қабылданды!');
+        contactForm.reset();
+    });
+}
