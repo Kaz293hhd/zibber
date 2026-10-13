@@ -3,83 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dәмді Кафе - Басты бет</title>
+    <title>Dәмді Kafe - Басты бет</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Навигация -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo"><i class="fa-solid fa-utensils"></i> Dәмді<span>Kafe</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-utensils"></i> Dәмді<span>Kafe</span></a>
             <ul class="nav-links">
-                <li><a href="#hero">Басты бет</a></li>
-                <li><a href="#menu">Мәзір</a></li>
-                <li><a href="#about">Біз туралы</a></li>
-                <li><a href="#booking">Тапсырыс беру</a></li>
+                <li><a href="index.html" class="active">Басты бет</a></li>
+                <li><a href="menu.html">Мәзір</a></li>
+                <li><a href="about.html">Біз туралы</a></li>
+                <li><a href="contact.html">Байланыс</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Басты бет (Hero) -->
-    <section id="hero" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Ең дәмді тағамдар мен хош иісті кофе</h1>
-            <p>Жайлы атмосфера, жылдам қызмет көрсету және тамаша көңіл-күй сізді күтуде.</p>
-            <a href="#menu" class="btn">Мәзірді көру</a>
+            <h1>Қош келдіңіздер!</h1>
+            <p>Ең дәмді тағамдар, хош иісті кофе және жайлы атмосфера тек бізде.</p>
+            <a href="menu.html" class="btn">Мәзірді көру</a>
         </div>
     </section>
 
-    <!-- Мәзір бөлімі -->
-    <section id="menu" class="menu-section">
-        <h2>Біздің мәзір</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <i class="fa-solid fa-burger"></i>
-                <h3>Фірменді бургер</h3>
-                <p>Ең таңдаулы ет пен балғын көкөністерден жасалған.</p>
-                <span class="price">2500 ₸</span>
-            </div>
-            <div class="menu-card">
-                <i class="fa-solid fa-pizza-slice"></i>
-                <h3>Пепперони пиццасы</h3>
-                <p>Қытырлақ қамыр, мол сыр және ірі шұжықтар.</p>
-                <span class="price">3800 ₸</span>
-            </div>
-            <div class="menu-card">
-                <i class="fa-solid fa-mug-hot"></i>
-                <h3>Капучино кофесі</h3>
-                <p>Хош иісті табиғи дәндерден жасалған жұмсақ сусын.</p>
-                <span class="price">1100 ₸</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Біз туралы -->
-    <section id="about" class="about-section">
-        <div class="about-content">
-            <h2>Біз туралы</h2>
-            <p>Біздің кафе 2024 жылдан бері қонақтарға ең сапалы тағамдар мен жоғары деңгейдегі қызметті ұсынып келеді. Барлық өнімдер тек балғын және табиғи ингредиенттерден дайындалады.</p>
-        </div>
-    </section>
-
-    <!-- Тапсырыс беру (Байланыс) -->
-    <section id="booking" class="booking-section">
-        <h2>Үстелге тапсырыс беру</h2>
-        <form id="booking-form">
-            <input type="text" placeholder="Аты-жөніңіз" required>
-            <input type="tel" placeholder="Телефон номеріңіз" required>
-            <input type="date" required>
-            <button type="submit" class="btn">Бронь жасау</button>
-        </form>
-    </section>
-
-    <!-- Футер -->
     <footer>
         <p>&copy; 2026 Dәмді Kafe. Барлық құқықтар қорғалған.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
