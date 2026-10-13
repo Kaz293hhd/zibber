@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заманауи Портфолио</title>
-    <!-- CSS стилін байланыстыру -->
+    <title>Dәмді Кафе - Басты бет</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Иконкалар үшін FontAwesome кітапханасы -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -14,91 +12,74 @@
     <!-- Навигация -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Portfolio<span>.</span></a>
+            <a href="#" class="logo"><i class="fa-solid fa-utensils"></i> Dәмді<span>Kafe</span></a>
             <ul class="nav-links">
                 <li><a href="#hero">Басты бет</a></li>
-                <li><a href="#skills">Дағдылар</a></li>
-                <li><a href="#projects">Жобалар</a></li>
-                <li><a href="#contact">Байланыс</a></li>
+                <li><a href="#menu">Мәзір</a></li>
+                <li><a href="#about">Біз туралы</a></li>
+                <li><a href="#booking">Тапсырыс беру</a></li>
             </ul>
-            <!-- Тақырыпты ауыстыратын батырма -->
-            <button id="theme-toggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
         </nav>
     </header>
 
-    <!-- Басты бет (Hero section) -->
+    <!-- Басты бет (Hero) -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Сәлем, мен <span class="highlight">Әділет</span></h1>
-            <p>Жаңа буын веб-қосымшалары мен заманауи сайттарды жобалайтын әзірлеушімін.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn primary">Жобаларым</a>
-                <a href="#contact" class="btn secondary">Хабарласу</a>
+            <h1>Ең дәмді тағамдар мен хош иісті кофе</h1>
+            <p>Жайлы атмосфера, жылдам қызмет көрсету және тамаша көңіл-күй сізді күтуде.</p>
+            <a href="#menu" class="btn">Мәзірді көру</a>
+        </div>
+    </section>
+
+    <!-- Мәзір бөлімі -->
+    <section id="menu" class="menu-section">
+        <h2>Біздің мәзір</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <i class="fa-solid fa-burger"></i>
+                <h3>Фірменді бургер</h3>
+                <p>Ең таңдаулы ет пен балғын көкөністерден жасалған.</p>
+                <span class="price">2500 ₸</span>
+            </div>
+            <div class="menu-card">
+                <i class="fa-solid fa-pizza-slice"></i>
+                <h3>Пепперони пиццасы</h3>
+                <p>Қытырлақ қамыр, мол сыр және ірі шұжықтар.</p>
+                <span class="price">3800 ₸</span>
+            </div>
+            <div class="menu-card">
+                <i class="fa-solid fa-mug-hot"></i>
+                <h3>Капучино кофесі</h3>
+                <p>Хош иісті табиғи дәндерден жасалған жұмсақ сусын.</p>
+                <span class="price">1100 ₸</span>
             </div>
         </div>
     </section>
 
-    <!-- Дағдылар бөлімі -->
-    <section id="skills" class="skills">
-        <h2>Менің дағдыларым</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fa-brands fa-html5"></i>
-                <h3>HTML5 & CSS3</h3>
-                <p>Заманауи, адаптивті және әдемі интерфейстер жасау.</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-brands fa-js"></i>
-                <h3>JavaScript</h3>
-                <p>Сайттарға интерактивтілік пен динамикалық логика қосу.</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>Flutter / Dart</h3>
-                <p>Мобильді қосымшалар мен кросс-платформалық жүйелер.</p>
-            </div>
+    <!-- Біз туралы -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>Біз туралы</h2>
+            <p>Біздің кафе 2024 жылдан бері қонақтарға ең сапалы тағамдар мен жоғары деңгейдегі қызметті ұсынып келеді. Барлық өнімдер тек балғын және табиғи ингредиенттерден дайындалады.</p>
         </div>
     </section>
 
-    <!-- Жобалар бөлімі -->
-    <section id="projects" class="projects">
-        <h2>Соңғы жобаларым</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-img"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>SafeRoom</h3>
-                <p>Студенттерге арналған ыңғайлы тұрғын үй платформасының жобасы.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-img"><i class="fa-solid fa-droplet"></i></div>
-                <h3>Hydro-Guard</h3>
-                <p>Су ресурстарының қауіпсіздігі мен тұтастығын бақылайтын жүйе.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-img"><i class="fa-solid fa-book-open"></i></div>
-                <h3>Folklore Comics</h3>
-                <p>Қазақ халқының фольклорын жаңғыртатын графикалық комикстер.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Байланыс бөлімі -->
-    <section id="contact" class="contact">
-        <h2>Менімен байланысыңыз</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Атыңыз" required>
-            <input type="email" placeholder="Электрондық поштаңыз" required>
-            <textarea placeholder="Хат мәтіні..." rows="5" required></textarea>
-            <button type="submit" class="btn primary">Жіберу</button>
+    <!-- Тапсырыс беру (Байланыс) -->
+    <section id="booking" class="booking-section">
+        <h2>Үстелге тапсырыс беру</h2>
+        <form id="booking-form">
+            <input type="text" placeholder="Аты-жөніңіз" required>
+            <input type="tel" placeholder="Телефон номеріңіз" required>
+            <input type="date" required>
+            <button type="submit" class="btn">Бронь жасау</button>
         </form>
     </section>
 
     <!-- Футер -->
     <footer>
-        <p>&copy; 2026 Барлық құқықтар қорғалған.</p>
+        <p>&copy; 2026 Dәмді Kafe. Барлық құқықтар қорғалған.</p>
     </footer>
 
-    <!-- JavaScript файлын байланыстыру -->
     <script src="script.js"></script>
 </body>
 </html>
