@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Байланыс - Dәмді Kafe</title>
+    <title>Байланыс және тапсырыс - Dәмді Kafe</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -22,21 +22,24 @@
     </header>
 
     <main class="page-content">
-        <h2>Бізбен байланысу & Тапсырыс</h2>
-        
-        <!-- Өз поштаңызды төмендегі сілтемеге жазыңыз: -->
-        <form action="https://formsubmit.co/kuralbaishingis@gmail.com" method="POST" id="contact-form">
-            
-            <!-- Капчаны өшіру және хат кеткен соң қайта оралу үшін -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://kaz293hhd.github.io/shynggys/contact.html">
-
-            <input type="text" name="Аты-жөні" placeholder="Аты-жөніңіз" required>
-            <input type="tel" name="Телефон" placeholder="Телефон номеріңіз" required>
-            <textarea name="Хабарлама" placeholder="Хабарлама немесе тапсырыс түрі..." rows="4" required></textarea>
-            
-            <button type="submit" class="btn">Тапсырысты жіберу</button>
-        </form>
+        <h2>Бізбен байланысу & Тапсырыс беру</h2>
+        <div class="contact-container">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name"><i class="fa-solid fa-user"></i> Аты-жөніңіз</label>
+                    <input type="text" id="name" placeholder="Мысалы: Айбек" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fa-solid fa-phone"></i> Телефон номеріңіз</label>
+                    <input type="tel" id="phone" placeholder="+7 (700) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fa-solid fa-comment"></i> Тапсырыс немесе хабарлама</label>
+                    <textarea id="message" placeholder="Қандай тағамға тапсырыс бергіңіз келеді?" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Тапсырысты жіберу</button>
+            </form>
+        </div>
     </main>
 
     <footer>
