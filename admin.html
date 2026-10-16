@@ -22,7 +22,7 @@
     </header>
 
     <main class="page-content">
-        <!-- АВТОРИЗАЦИЯ ФОРМАСЫ -->
+        <!-- АВТОРИЗАЦИЯ -->
         <div id="login-section" class="form-container">
             <h2 style="text-align: center; margin-bottom: 20px;"><i class="fa-solid fa-lock"></i> Админге кіру</h2>
             <form id="login-form">
@@ -40,7 +40,7 @@
 
         <!-- АДМИН ПАНЕЛЬ -->
         <div id="admin-dashboard" style="display: none;">
-            <h2 class="section-title"><i class="fa-solid fa-user-gear"></i> Әкімші Басқару Панелі</h2>
+            <h2 class="section-title"><i class="fa-solid fa-user-gear"></i> Бұлттық Басқару Панелі</h2>
 
             <div class="admin-grid">
                 <div>
@@ -64,14 +64,14 @@
                                 <input type="number" id="add-price" required>
                             </div>
                             <div class="form-group">
-                                <label>Сурет таңдаңыз (Файл)</label>
+                                <label>Сурет (Файл)</label>
                                 <input type="file" id="add-file" accept="image/*" required>
                             </div>
                             <div class="form-group">
                                 <label>Сипаттамасы</label>
                                 <textarea id="add-desc" rows="3" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-secondary" style="width: 100%;">Сақтау</button>
+                            <button type="submit" class="btn btn-secondary" style="width: 100%;">Бұлтқа сақтау</button>
                         </form>
                     </div>
                 </div>
@@ -90,19 +90,15 @@
                         <tbody id="admin-menu-table"></tbody>
                     </table>
 
-                    <h3 style="margin-top: 30px;"><i class="fa-solid fa-list-check"></i> Келіп түскен тапсырыстар</h3>
+                    <h3 style="margin-top: 30px;"><i class="fa-solid fa-list-check"></i> Келіп түскен тапсырыстар (Live)</h3>
                     <div id="orders-container"></div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Dәмді Kafe. Басқару жүйесі.</p>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
+    <script type="module" src="script.js"></script>
+    <script type="module">
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const user = document.getElementById('admin-user').value;
@@ -130,58 +126,55 @@
             }
         }
 
-        function logoutAdmin() {
+        window.logoutAdmin = function() {
             localStorage.removeItem('isAdminLogged');
             checkAuth();
-        }
+        };
 
         function loadAdminData() {
-            const items = getMenuItems();
-            const menuTable = document.getElementById('admin-menu-table');
-            menuTable.innerHTML = '';
-            
-            items.forEach(item => {
-                menuTable.innerHTML += `
-                    <tr>
-                        <td><img src="${item.img}" style="width:50px; height:50px; object-fit:cover; border-radius:8px;"></td>
-                        <td>${item.title}</td>
-                        <td>${item.price} ₸</td>
-                        <td>
-                            <button class="btn btn-danger" style="padding: 4px 8px; font-size:0.8rem;" onclick="deleteMenuItem(${item.id})">Өшіру</button>
-                        </td>
-                    </tr>
-                `;
+            // Мәзірді бұлттан тыңдау
+            window.onSnapshot(window.collection(window.db, "menu"), (snapshot) => {
+                const menuTable = document.getElementById('admin-menu-table');
+                menuTable.innerHTML = '';
+                snapshot.forEach(docSnap => {
+                    const item = docSnap.data();
+                    menuTable.innerHTML += `
+                        <tr>
+                            <td><img src="${item.img}" style="width:40px; height:40px; object-fit:cover; border-radius:6px;"></td>
+                            <td>${item.title}</td>
+                            <td>${item.price} ₸</td>
+                            <td>
+                                <button class="btn btn-danger" style="padding: 4px 8px; font-size:0.8rem;" onclick="deleteMenuItem('${docSnap.id}')">Өшіру</button>
+                            </td>
+                        </tr>
+                    `;
+                });
             });
 
-            const orders = getOrders();
-            const ordersDiv = document.getElementById('orders-container');
-            ordersDiv.innerHTML = '';
-
-            if (orders.length === 0) {
-                ordersDiv.innerHTML = '<p style="margin-top:10px;">Әзірше тапсырыстар жоқ.</p>';
-            } else {
-                orders.reverse().forEach(ord => {
+            // Тапсырыстарды бұлттан тыңдау
+            window.onSnapshot(window.collection(window.db, "orders"), (snapshot) => {
+                const ordersDiv = document.getElementById('orders-container');
+                ordersDiv.innerHTML = '';
+                snapshot.forEach(docSnap => {
+                    const ord = docSnap.data();
                     let itemsList = ord.items.map(i => `${i.title} x${i.quantity}`).join(', ');
                     ordersDiv.innerHTML += `
                         <div style="background:white; padding:15px; border-radius:10px; box-shadow:var(--shadow); margin-top:10px;">
-                            <strong>№${ord.id} (${ord.date})</strong><br>
+                            <strong>(${ord.date})</strong><br>
                             <strong>Клиент:</strong> ${ord.customer} (${ord.phone})<br>
                             <strong>Мекенжай:</strong> ${ord.address}<br>
-                            <strong>Төлем тәсілі:</strong> <span style="color:var(--secondary); font-weight:bold;">${ord.payment}</span><br>
+                            <strong>Төлем:</strong> ${ord.payment}<br>
                             <strong>Тапсырыс:</strong> ${itemsList}<br>
                             <strong style="color:var(--primary)">Сомасы: ${ord.total} ₸</strong>
                         </div>
                     `;
                 });
-            }
+            });
         }
 
-        function deleteMenuItem(id) {
-            let items = getMenuItems();
-            items = items.filter(i => i.id !== id);
-            saveMenuItems(items);
-            loadAdminData();
-        }
+        window.deleteMenuItem = async function(id) {
+            await window.deleteDoc(window.doc(window.db, "menu", id));
+        };
 
         document.getElementById('add-item-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -191,24 +184,17 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(evt) {
-                const imgBase64 = evt.target.result;
-                const items = getMenuItems();
-
-                const newItem = {
-                    id: Date.now(),
+            reader.onload = async function(evt) {
+                await window.addDoc(window.collection(window.db, "menu"), {
                     title: document.getElementById('add-title').value,
                     category: document.getElementById('add-category').value,
                     price: Number(document.getElementById('add-price').value),
-                    img: imgBase64,
+                    img: evt.target.result,
                     desc: document.getElementById('add-desc').value
-                };
+                });
 
-                items.push(newItem);
-                saveMenuItems(items);
                 document.getElementById('add-item-form').reset();
-                loadAdminData();
-                alert('Тағам сәтті қосылды!');
+                alert('Тағам бұлтқа сәтті сақталды!');
             };
 
             reader.readAsDataURL(file);
