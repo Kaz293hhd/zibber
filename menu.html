@@ -31,10 +31,10 @@
         <p class="section-subtitle">Өзіңізге ұнайтын сүйікті тағамды таңдаңыз</p>
 
         <div class="filter-buttons">
-            <button class="filter-btn active" data-category="all">Барлығы</button>
-            <button class="filter-btn" data-category="burgers">Бургерлер</button>
-            <button class="filter-btn" data-category="pizza">Пиццалар</button>
-            <button class="filter-btn" data-category="drinks">Сусындар</button>
+            <button class="filter-btn active" onclick="renderMenu('all')">Барлығы</button>
+            <button class="filter-btn" onclick="renderMenu('burgers')">Бургерлер</button>
+            <button class="filter-btn" onclick="renderMenu('pizza')">Пиццалар</button>
+            <button class="filter-btn" onclick="renderMenu('drinks')">Сусындар</button>
         </div>
 
         <div class="menu-grid" id="menu-grid"></div>
@@ -60,7 +60,7 @@
             <div class="form-group">
                 <label><strong>Төлем тәсілі:</strong></label>
                 <select id="checkout-payment" style="margin-top:5px;">
-                    <option value="Қолма-қол (Cash)">💵 Қолма-қол ақшамен (Курьерге)</option>
+                    <option value="Қолма-қол (Cash)">💵 Қолма-қол ақшамен</option>
                     <option value="Банк картасы / Kaspi QR">💳 Банк картасы / Kaspi QR</option>
                 </select>
             </div>
@@ -73,6 +73,7 @@
         <p>&copy; 2026 Dәмді Kafe. Барлық құқықтар қорғалған.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- type="module" міндетті түрде болуы керек -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
