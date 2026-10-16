@@ -17,37 +17,62 @@
                 <li><a href="menu.html" class="active">Мәзір</a></li>
                 <li><a href="about.html">Біз туралы</a></li>
                 <li><a href="contact.html">Байланыс</a></li>
+                <li><a href="admin.html" style="color: #ee5253;"><i class="fa-solid fa-user-shield"></i> Админ</a></li>
             </ul>
+            <div class="cart-icon-btn" id="cart-btn">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
         </nav>
     </header>
 
     <main class="page-content">
-        <h2>Біздің мәзір</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <i class="fa-solid fa-burger"></i>
-                <h3>Фірменді бургер</h3>
-                <p>Ең таңдаулы ет пен балғын көкөністер.</p>
-                <span class="price">2500 ₸</span>
-            </div>
-            <div class="menu-card">
-                <i class="fa-solid fa-pizza-slice"></i>
-                <h3>Пепперони пиццасы</h3>
-                <p>Қытырлақ қамыр, мол сыр және шұжықтар.</p>
-                <span class="price">3800 ₸</span>
-            </div>
-            <div class="menu-card">
-                <i class="fa-solid fa-mug-hot"></i>
-                <h3>Капучино кофесі</h3>
-                <p>Хош иісті табиғи дәндерден жасалған сусын.</p>
-                <span class="price">1100 ₸</span>
-            </div>
+        <h2 class="section-title">Біздің Мәзір</h2>
+        <p class="section-subtitle">Өзіңізге ұнайтын сүйікті тағамды таңдаңыз</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">Барлығы</button>
+            <button class="filter-btn" data-category="burgers">Бургерлер</button>
+            <button class="filter-btn" data-category="pizza">Пиццалар</button>
+            <button class="filter-btn" data-category="drinks">Сусындар</button>
         </div>
+
+        <div class="menu-grid" id="menu-grid"></div>
     </main>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-cart">&times;</span>
+            <h2><i class="fa-solid fa-cart-shopping"></i> Тапсырысты рәсімдеу</h2>
+            <div id="cart-items" style="margin-top:20px;"></div>
+            <div class="cart-total">Барлығы: <span id="cart-total">0 ₸</span></div>
+            
+            <div class="form-group">
+                <input type="text" id="checkout-name" placeholder="Аты-жөніңіз *" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="checkout-phone" placeholder="Телефон нөміріңіз *" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="checkout-address" placeholder="Жеткізу мекенжайы *" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Төлем тәсілі:</strong></label>
+                <select id="checkout-payment" style="margin-top:5px;">
+                    <option value="Қолма-қол (Cash)">💵 Қолма-қол ақшамен (Курьерге)</option>
+                    <option value="Банк картасы / Kaspi QR">💳 Банк картасы / Kaspi QR</option>
+                </select>
+            </div>
+
+            <button class="btn btn-secondary" style="width:100%;" onclick="checkout()">Тапсырыс беру</button>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Dәмді Kafe. Барлық құқықтар қорғалған.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
