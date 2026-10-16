@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dәмді Kafe - Басты бет</title>
+    <title>Dәмді Kafe - Жайлылық пен Дәм Тілі</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,21 +17,59 @@
                 <li><a href="menu.html">Мәзір</a></li>
                 <li><a href="about.html">Біз туралы</a></li>
                 <li><a href="contact.html">Байланыс</a></li>
+                <li><a href="admin.html" style="color: #ee5253;"><i class="fa-solid fa-user-shield"></i> Админ</a></li>
             </ul>
+            <div class="cart-icon-btn" id="cart-btn">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Қош келдіңіздер!</h1>
-            <p>Ең дәмді тағамдар, хош иісті кофе және жайлы атмосфера тек бізде.</p>
-            <a href="menu.html" class="btn">Мәзірді көру</a>
+            <h1>Бүгінгі күніңізді дәмді етіңіз!</h1>
+            <p>Ең балғын өнімдер, бірегей рецепттер және сізге арналған мінсіз қызмет.</p>
+            <div style="display:flex; gap:15px; justify-content:center;">
+                <a href="menu.html" class="btn">Мәзірді көру</a>
+                <a href="contact.html" class="btn btn-secondary">Байланысу</a>
+            </div>
         </div>
     </section>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-cart">&times;</span>
+            <h2><i class="fa-solid fa-cart-shopping"></i> Тапсырысты рәсімдеу</h2>
+            <div id="cart-items" style="margin-top:20px;"></div>
+            <div class="cart-total">Барлығы: <span id="cart-total">0 ₸</span></div>
+            
+            <div class="form-group">
+                <input type="text" id="checkout-name" placeholder="Аты-жөніңіз *" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="checkout-phone" placeholder="Телефон нөміріңіз *" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="checkout-address" placeholder="Жеткізу мекенжайы *" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Төлем тәсілі:</strong></label>
+                <select id="checkout-payment" style="margin-top:5px;">
+                    <option value="Қолма-қол (Cash)">💵 Қолма-қол ақшамен (Курьерге)</option>
+                    <option value="Банк картасы / Kaspi QR">💳 Банк картасы / Kaspi QR</option>
+                </select>
+            </div>
+
+            <button class="btn btn-secondary" style="width:100%;" onclick="checkout()">Тапсырыс беру</button>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Dәмді Kafe. Барлық құқықтар қорғалған.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
